@@ -581,6 +581,8 @@ function closeQuickView() {
     modalOverlay.classList.remove('open');
     document.body.style.overflow = '';
   }
+}
+
 // ==========================================
 // WhatsApp Direct Ordering & Shop Configuration
 // ==========================================
