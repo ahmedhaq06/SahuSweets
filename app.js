@@ -223,6 +223,8 @@ const PRODUCTS = [
 let cart = JSON.parse(localStorage.getItem('sahu_cart')) || [];
 let activeCoupon = null;
 let currentCategory = 'all';
+let isExploreExpanded = false;
+const EXPLORE_PAGE_SIZE = 4;
 
 // ==========================================
 // DOM Elements
@@ -274,18 +276,26 @@ function renderTopProducts() {
 }
 
 // ==========================================
-// Render Explore Menu / Filterable Grid
+// Render Explore Menu / Filterable Grid & Load More
 // ==========================================
-function renderExploreMenu(category) {
+function renderExploreMenu(category, maintainExpanded = false) {
   const container = document.getElementById('explore-menu-grid');
+  const loadMoreWrap = document.getElementById('explore-load-more-wrap');
+  const loadMoreBtn = document.getElementById('btn-load-more');
   if (!container) return;
+
+  if (!maintainExpanded) {
+    isExploreExpanded = false;
+  }
 
   currentCategory = category;
   const filtered = category === 'all' 
     ? PRODUCTS 
     : PRODUCTS.filter(item => item.category.toLowerCase() === category.toLowerCase());
 
-  container.innerHTML = filtered.map(product => `
+  const itemsToDisplay = isExploreExpanded ? filtered : filtered.slice(0, EXPLORE_PAGE_SIZE);
+
+  container.innerHTML = itemsToDisplay.map(product => `
     <article class="explore-card" data-id="${product.id}">
       <div class="explore-card-img-box">
         <img src="${product.image}" alt="${product.name}" loading="lazy" />
@@ -305,7 +315,31 @@ function renderExploreMenu(category) {
       </div>
     </article>
   `).join('');
+
+  // Handle Load More button visibility and remaining count
+  if (loadMoreWrap && loadMoreBtn) {
+    if (filtered.length <= EXPLORE_PAGE_SIZE) {
+      loadMoreWrap.style.display = 'none';
+    } else {
+      loadMoreWrap.style.display = 'block';
+      if (isExploreExpanded) {
+        loadMoreBtn.innerHTML = `<span>Show Less</span> <span class="arrow-icon">↑</span>`;
+      } else {
+        const remaining = filtered.length - EXPLORE_PAGE_SIZE;
+        loadMoreBtn.innerHTML = `<span>Load More Items (${remaining}+)</span> <span class="arrow-icon">↓</span>`;
+      }
+    }
+  }
 }
+
+function toggleExploreLoadMore() {
+  isExploreExpanded = !isExploreExpanded;
+  renderExploreMenu(currentCategory, true);
+  if (!isExploreExpanded) {
+    document.getElementById('explore-menu')?.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+window.toggleExploreLoadMore = toggleExploreLoadMore;
 
 // ==========================================
 // Cart Operations
@@ -654,6 +688,30 @@ function showToast(message) {
 }
 
 // ==========================================
+// Mobile Navigation Drawer Toggle
+// ==========================================
+function toggleMobileMenu(forceState) {
+  const drawer = document.getElementById('mobile-nav-drawer');
+  const overlay = document.getElementById('mobile-nav-overlay');
+  if (!drawer || !overlay) return;
+
+  const shouldOpen = typeof forceState === 'boolean' 
+    ? forceState 
+    : !drawer.classList.contains('open');
+
+  if (shouldOpen) {
+    drawer.classList.add('open');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  } else {
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+window.toggleMobileMenu = toggleMobileMenu;
+
+// ==========================================
 // Event Listeners & Header Scroll
 // ==========================================
 function setupEventListeners() {
@@ -668,28 +726,12 @@ function setupEventListeners() {
     });
   });
 
-  // Mobile menu toggle & link auto-close
+  // Mobile menu toggle trigger
   const mobileToggle = document.getElementById('mobile-menu-toggle');
-  const navLinks = document.getElementById('main-nav-links');
-  if (mobileToggle && navLinks) {
+  if (mobileToggle) {
     mobileToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      navLinks.classList.toggle('open');
-    });
-
-    // Auto-close menu when clicking any nav link
-    const links = navLinks.querySelectorAll('a');
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-      });
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && e.target !== mobileToggle) {
-        navLinks.classList.remove('open');
-      }
+      toggleMobileMenu(true);
     });
   }
 
@@ -698,10 +740,12 @@ function setupEventListeners() {
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       const term = e.target.value.toLowerCase().trim();
+      const loadMoreWrap = document.getElementById('explore-load-more-wrap');
       if (!term) {
         renderExploreMenu(currentCategory);
         return;
       }
+      if (loadMoreWrap) loadMoreWrap.style.display = 'none';
       const filtered = PRODUCTS.filter(p => 
         p.name.toLowerCase().includes(term) || 
         p.category.toLowerCase().includes(term) ||

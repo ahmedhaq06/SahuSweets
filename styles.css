@@ -163,7 +163,7 @@ input, select, textarea {
 }
 
 /* ==========================================================================
-   Main Sticky Header & Navigation
+   Main Sticky Header & Desktop Navigation
    ========================================================================== */
 .site-header {
   position: sticky;
@@ -180,7 +180,6 @@ input, select, textarea {
 }
 
 .nav-container {
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -343,13 +342,124 @@ input, select, textarea {
   display: none;
   font-size: 1.5rem;
   color: var(--primary);
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-sm);
   background: var(--bg-light-soft);
-  border: 1px solid rgba(135, 35, 65, 0.15);
+  border: 1.5px solid rgba(135, 35, 65, 0.2);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.mobile-toggle:hover {
+  background: rgba(135, 35, 65, 0.1);
+}
+
+/* ==========================================================================
+   Mobile Slide-in Navigation Drawer & Backdrop
+   ========================================================================== */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 2500;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.mobile-nav-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  width: 300px;
+  max-width: 85vw;
+  height: 100%;
+  background: #ffffff;
+  z-index: 2501;
+  box-shadow: 10px 0 40px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  transition: left 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-nav-drawer.open {
+  left: 0;
+}
+
+.mobile-nav-header {
+  padding: 1.25rem 1.2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(135, 35, 65, 0.1);
+  background: var(--bg-light);
+}
+
+.mobile-nav-close {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.mobile-nav-close:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  padding: 1rem 0;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.mobile-nav-list li a {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  border-left: 4px solid transparent;
+  transition: var(--transition);
+}
+
+.mobile-nav-list li a:hover,
+.mobile-nav-list li a.active {
+  background: rgba(135, 35, 65, 0.06);
+  color: var(--primary);
+  border-left-color: var(--primary);
+}
+
+.mobile-nav-list .nav-icon {
+  font-size: 1.2rem;
+}
+
+.mobile-nav-footer {
+  padding: 1.25rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background: var(--bg-light);
 }
 
 /* ==========================================================================
@@ -1025,6 +1135,44 @@ input, select, textarea {
 
 .btn-add-mini:hover {
   background: var(--primary-light);
+}
+
+/* Explore Menu Load More Button */
+.explore-load-more-wrap {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.btn-load-more {
+  background: #ffffff;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+  padding: 0.75rem 2.2rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.92rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  box-shadow: 0 4px 15px rgba(135, 35, 65, 0.1);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.btn-load-more:hover {
+  background: var(--primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(135, 35, 65, 0.25);
+}
+
+.btn-load-more .arrow-icon {
+  font-size: 1.1rem;
+  transition: transform 0.25s ease;
+}
+
+.btn-load-more:hover .arrow-icon {
+  transform: translateY(2px);
 }
 
 /* ==========================================================================
@@ -1794,11 +1942,19 @@ input, select, textarea {
 }
 
 /* ==========================================================================
-   Responsive Breakpoints: Tablets, Phones & Small Displays
+   Responsive Breakpoints: Tablets, Laptops & Mobile Displays
    ========================================================================== */
 
-/* Medium Devices (Tablets < 1024px) */
-@media (max-width: 1024px) {
+/* Tablet & Mobile Screens (<= 992px) */
+@media (max-width: 992px) {
+  .main-nav-links {
+    display: none !important;
+  }
+
+  .mobile-toggle {
+    display: flex !important;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 2.2rem;
@@ -1850,7 +2006,7 @@ input, select, textarea {
   }
 }
 
-/* Mobile Devices (Phones < 768px) */
+/* Mobile Phones (<= 768px) */
 @media (max-width: 768px) {
   .top-bar-content {
     justify-content: center;
@@ -1863,7 +2019,6 @@ input, select, textarea {
 
   .nav-container {
     padding: 0.65rem 1rem;
-    position: relative;
   }
 
   .brand-logo-img {
@@ -1877,47 +2032,6 @@ input, select, textarea {
 
   .brand-text span {
     font-size: 0.62rem;
-  }
-
-  /* Hamburger Toggle & Responsive Dropdown Navigation */
-  .mobile-toggle {
-    display: flex !important;
-    cursor: pointer;
-  }
-
-  .main-nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #ffffff;
-    flex-direction: column;
-    padding: 1.25rem 1.5rem;
-    gap: 0.85rem;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    border-top: 1px solid rgba(135, 35, 65, 0.1);
-    border-bottom: 3px solid var(--primary);
-    z-index: 1500;
-  }
-
-  .main-nav-links.open {
-    display: flex !important;
-    animation: navSlideDown 0.2s ease-out forwards;
-  }
-
-  @keyframes navSlideDown {
-    from { opacity: 0; transform: translateY(-8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .main-nav-links a {
-    font-size: 1.05rem;
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 0.55rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
 
   .btn-whatsapp {
@@ -2069,6 +2183,13 @@ input, select, textarea {
 
   .checkout-modal-card {
     padding: 1.5rem 1.2rem;
+  }
+
+  .btn-load-more {
+    width: 100%;
+    justify-content: center;
+    max-width: 340px;
+    padding: 0.8rem 1.5rem;
   }
 }
 
