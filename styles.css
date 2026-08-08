@@ -368,6 +368,12 @@ input, select, textarea {
 /* ==========================================================================
    Mobile Slide-in Navigation Drawer & Backdrop
    ========================================================================== */
+
+@keyframes slideInFromRight {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+
 .mobile-nav-overlay {
   display: none;
   position: fixed;
@@ -375,32 +381,26 @@ input, select, textarea {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.72);
+  background: rgba(0, 0, 0, 0.65);
   z-index: 2999;
-}
-
-.mobile-nav-overlay.open {
-  display: block;
 }
 
 .mobile-nav-drawer {
   display: none;
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: 290px;
   max-width: 85vw;
   height: 100%;
   background: #ffffff;
   z-index: 3000;
-  box-shadow: 4px 0 30px rgba(0,0,0,0.25);
+  box-shadow: -4px 0 30px rgba(0, 0, 0, 0.22);
   flex-direction: column;
   overflow-y: auto;
+  animation: slideInFromRight 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.mobile-nav-drawer.open {
-  display: flex;
-}
 
 .mobile-nav-header {
   padding: 1.25rem 1.2rem 1rem;
