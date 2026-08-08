@@ -154,27 +154,142 @@
         <p class="section-desc">Handcrafted with time-honored recipes, premium ingredients, and unbeatable taste in every single bite.</p>
       </div>
 
-      <!-- Dynamic 6-item Product Grid (Loaded via app.js with fallback) -->
+      <!-- 6-item Product Grid -->
       <div class="products-grid" id="top-products-grid">
-        <!-- Fallback static cards in case JS is disabled -->
-        <article class="product-card">
+        <!-- Item 1 -->
+        <article class="product-card" data-id="prod-1">
           <div class="product-image-box">
-            <img src="images/toast-milk-rusk.png" alt="Royal Butter Milk Toast" />
+            <img src="images/toast-milk-rusk.png" alt="Royal Butter Milk Toast (Rusk)" loading="lazy" />
             <span class="product-tag">Best Seller</span>
-            <div class="product-veg-indicator"></div>
+            <div class="product-veg-indicator" title="100% Pure Vegetarian"></div>
           </div>
           <div class="product-card-body">
             <div>
               <div class="product-price-row">
                 <div class="product-price">₹120 <span class="product-original-price">₹150</span></div>
-                <button class="btn-info-circle" onclick="openQuickView('prod-1')">i</button>
+                <button class="btn-info-circle" onclick="openQuickView('prod-1')" title="Quick View & Ingredients" aria-label="Quick View">i</button>
               </div>
               <h3 class="product-title">Royal Butter Milk Toast (Rusk)</h3>
-              <p class="product-short-desc">Crisp, double-baked golden milk rusks infused with aromatic cardamom.</p>
+              <p class="product-short-desc">Crisp, double-baked golden milk rusks infused with aromatic cardamom and pure butter.</p>
             </div>
             <div class="product-footer-action">
               <span class="product-pack-size">400g Pack</span>
-              <button class="btn-add-cart" onclick="addToCart('prod-1', this)">Add +</button>
+              <button class="btn-add-cart" onclick="addToCart('prod-1', this)"><span>Add</span> +</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 2 -->
+        <article class="product-card" data-id="prod-2">
+          <div class="product-image-box">
+            <img src="images/danish-pastry.png" alt="Danish Berry Custard Pastry" loading="lazy" />
+            <span class="product-tag">Chef Special</span>
+            <div class="product-veg-indicator" title="100% Pure Vegetarian"></div>
+          </div>
+          <div class="product-card-body">
+            <div>
+              <div class="product-price-row">
+                <div class="product-price">₹160 <span class="product-original-price">₹190</span></div>
+                <button class="btn-info-circle" onclick="openQuickView('prod-2')" title="Quick View & Ingredients" aria-label="Quick View">i</button>
+              </div>
+              <h3 class="product-title">Danish Berry Custard Pastry</h3>
+              <p class="product-short-desc">Flaky artisan puff pastry layered with silky vanilla custard and fresh wild berries.</p>
+            </div>
+            <div class="product-footer-action">
+              <span class="product-pack-size">Single / 180g</span>
+              <button class="btn-add-cart" onclick="addToCart('prod-2', this)"><span>Add</span> +</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 3 -->
+        <article class="product-card" data-id="prod-3">
+          <div class="product-image-box">
+            <img src="images/whole-grain-bread.png" alt="Multiseed Artisan Rustic Loaf" loading="lazy" />
+            <span class="product-tag">Healthy Pick</span>
+            <div class="product-veg-indicator" title="100% Pure Vegetarian"></div>
+          </div>
+          <div class="product-card-body">
+            <div>
+              <div class="product-price-row">
+                <div class="product-price">₹180 <span class="product-original-price">₹220</span></div>
+                <button class="btn-info-circle" onclick="openQuickView('prod-3')" title="Quick View & Ingredients" aria-label="Quick View">i</button>
+              </div>
+              <h3 class="product-title">Multiseed Artisan Rustic Loaf</h3>
+              <p class="product-short-desc">Wholesome whole-wheat sourdough loaf encrusted with flax, pumpkin, and sesame seeds.</p>
+            </div>
+            <div class="product-footer-action">
+              <span class="product-pack-size">450g Loaf</span>
+              <button class="btn-add-cart" onclick="addToCart('prod-3', this)"><span>Add</span> +</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 4 -->
+        <article class="product-card" data-id="prod-4">
+          <div class="product-image-box">
+            <img src="images/chocolate-cake.png" alt="Belgian Dark Truffle Cake (Eggless)" loading="lazy" />
+            <span class="product-tag">Celebration</span>
+            <div class="product-veg-indicator" title="100% Pure Vegetarian"></div>
+          </div>
+          <div class="product-card-body">
+            <div>
+              <div class="product-price-row">
+                <div class="product-price">₹550 <span class="product-original-price">₹650</span></div>
+                <button class="btn-info-circle" onclick="openQuickView('prod-4')" title="Quick View & Ingredients" aria-label="Quick View">i</button>
+              </div>
+              <h3 class="product-title">Belgian Dark Truffle Cake (Eggless)</h3>
+              <p class="product-short-desc">Decadent moist chocolate sponge drenched in 55% Belgian chocolate ganache with chocolate curls.</p>
+            </div>
+            <div class="product-footer-action">
+              <span class="product-pack-size">500g (1.1 lbs)</span>
+              <button class="btn-add-cart" onclick="addToCart('prod-4', this)"><span>Add</span> +</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 5 -->
+        <article class="product-card" data-id="prod-5">
+          <div class="product-image-box">
+            <img src="images/garlic-toast.png" alt="Garlic Herb Butter Toast Slices" loading="lazy" />
+            <span class="product-tag">Crispy Snack</span>
+            <div class="product-veg-indicator" title="100% Pure Vegetarian"></div>
+          </div>
+          <div class="product-card-body">
+            <div>
+              <div class="product-price-row">
+                <div class="product-price">₹140 <span class="product-original-price">₹170</span></div>
+                <button class="btn-info-circle" onclick="openQuickView('prod-5')" title="Quick View & Ingredients" aria-label="Quick View">i</button>
+              </div>
+              <h3 class="product-title">Garlic Herb Butter Toast Slices</h3>
+              <p class="product-short-desc">Crunchy twice-baked toast batons generously glazed with roasted garlic butter and Italian herbs.</p>
+            </div>
+            <div class="product-footer-action">
+              <span class="product-pack-size">250g Pack</span>
+              <button class="btn-add-cart" onclick="addToCart('prod-5', this)"><span>Add</span> +</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 6 -->
+        <article class="product-card" data-id="prod-6">
+          <div class="product-image-box">
+            <img src="images/berry-cake.png" alt="Fresh Berry Glaze Cheesecake" loading="lazy" />
+            <span class="product-tag">Gourmet</span>
+            <div class="product-veg-indicator" title="100% Pure Vegetarian"></div>
+          </div>
+          <div class="product-card-body">
+            <div>
+              <div class="product-price-row">
+                <div class="product-price">₹620 <span class="product-original-price">₹750</span></div>
+                <button class="btn-info-circle" onclick="openQuickView('prod-6')" title="Quick View & Ingredients" aria-label="Quick View">i</button>
+              </div>
+              <h3 class="product-title">Fresh Berry Glaze Cheesecake</h3>
+              <p class="product-short-desc">Creamy New York-style baked cheesecake crowned with fresh raspberry-blueberry compote.</p>
+            </div>
+            <div class="product-footer-action">
+              <span class="product-pack-size">500g Round</span>
+              <button class="btn-add-cart" onclick="addToCart('prod-6', this)"><span>Add</span> +</button>
             </div>
           </div>
         </article>
@@ -245,7 +360,221 @@
 
       <!-- Explore Grid Container -->
       <div class="explore-grid" id="explore-menu-grid">
-        <!-- Rendered by app.js -->
+        <!-- Item 1 -->
+        <article class="explore-card" data-id="prod-1">
+          <div class="explore-card-img-box">
+            <img src="images/toast-milk-rusk.png" alt="Royal Butter Milk Toast (Rusk)" />
+          </div>
+          <div class="explore-card-content">
+            <div>
+              <span class="explore-card-category">TOAST • 400g Pack</span>
+              <h4 class="explore-card-title">Royal Butter Milk Toast (Rusk)</h4>
+              <p class="explore-card-desc">Crisp, double-baked golden milk rusks infused with aromatic cardamom and pure butter.</p>
+            </div>
+            <div class="explore-card-bottom">
+              <span class="explore-price">₹120</span>
+              <button class="btn-add-mini" onclick="addToCart('prod-1', this)">Add +</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 2 -->
+        <article class="explore-card" data-id="prod-2">
+          <div class="explore-card-img-box">
+            <img src="images/danish-pastry.png" alt="Danish Berry Custard Pastry" />
+          </div>
+          <div class="explore-card-content">
+            <div>
+              <span class="explore-card-category">CROISSANT • Single / 180g</span>
+              <h4 class="explore-card-title">Danish Berry Custard Pastry</h4>
+              <p class="explore-card-desc">Flaky artisan puff pastry layered with silky vanilla custard and fresh wild berries.</p>
+            </div>
+            <div class="explore-card-bottom">
+              <span class="explore-price">₹160</span>
+              <button class="btn-add-mini" onclick="addToCart('prod-2', this)">Add +</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 3 -->
+        <article class="explore-card" data-id="prod-3">
+          <div class="explore-card-img-box">
+            <img src="images/whole-grain-bread.png" alt="Multiseed Artisan Rustic Loaf" />
+          </div>
+          <div class="explore-card-content">
+            <div>
+              <span class="explore-card-category">BREAD • 450g Loaf</span>
+              <h4 class="explore-card-title">Multiseed Artisan Rustic Loaf</h4>
+              <p class="explore-card-desc">Wholesome whole-wheat sourdough loaf encrusted with flax, pumpkin, and sesame seeds.</p>
+            </div>
+            <div class="explore-card-bottom">
+              <span class="explore-price">₹180</span>
+              <button class="btn-add-mini" onclick="addToCart('prod-3', this)">Add +</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 4 -->
+        <article class="explore-card" data-id="prod-4">
+          <div class="explore-card-img-box">
+            <img src="images/chocolate-cake.png" alt="Belgian Dark Truffle Cake (Eggless)" />
+          </div>
+          <div class="explore-card-content">
+            <div>
+              <span class="explore-card-category">CAKE • 500g (1.1 lbs)</span>
+              <h4 class="explore-card-title">Belgian Dark Truffle Cake (Eggless)</h4>
+              <p class="explore-card-desc">Decadent moist chocolate sponge drenched in 55% Belgian chocolate ganache with chocolate curls.</p>
+            </div>
+            <div class="explore-card-bottom">
+              <span class="explore-price">₹550</span>
+              <button class="btn-add-mini" onclick="addToCart('prod-4', this)">Add +</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 5 -->
+        <article class="explore-card" data-id="prod-5">
+          <div class="explore-card-img-box">
+            <img src="images/garlic-toast.png" alt="Garlic Herb Butter Toast Slices" />
+          </div>
+          <div class="explore-card-content">
+            <div>
+              <span class="explore-card-category">TOAST • 250g Pack</span>
+              <h4 class="explore-card-title">Garlic Herb Butter Toast Slices</h4>
+              <p class="explore-card-desc">Crunchy twice-baked toast batons generously glazed with roasted garlic butter and Italian herbs.</p>
+            </div>
+            <div class="explore-card-bottom">
+              <span class="explore-price">₹140</span>
+              <button class="btn-add-mini" onclick="addToCart('prod-5', this)">Add +</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 6 -->
+        <article class="explore-card" data-id="prod-6">
+          <div class="explore-card-img-box">
+            <img src="images/berry-cake.png" alt="Fresh Berry Glaze Cheesecake" />
+          </div>
+          <div class="explore-card-content">
+            <div>
+              <span class="explore-card-category">CAKE • 500g Round</span>
+              <h4 class="explore-card-title">Fresh Berry Glaze Cheesecake</h4>
+              <p class="explore-card-desc">Creamy New York-style baked cheesecake crowned with fresh raspberry-blueberry compote.</p>
+            </div>
+            <div class="explore-card-bottom">
+              <span class="explore-price">₹620</span>
+              <button class="btn-add-mini" onclick="addToCart('prod-6', this)">Add +</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 7 -->
+        <article class="explore-card" data-id="prod-7">
+          <div class="explore-card-img-box">
+            <img src="images/muffins.png" alt="Wild Blueberry Streusel Muffins" />
+          </div>
+          <div class="explore-card-content">
+            <div>
+              <span class="explore-card-category">MUFFINS • Pack of 2</span>
+              <h4 class="explore-card-title">Wild Blueberry Streusel Muffins</h4>
+              <p class="explore-card-desc">Plump vanilla muffins bursting with real blueberries and a crispy golden cinnamon streusel crumb.</p>
+            </div>
+            <div class="explore-card-bottom">
+              <span class="explore-price">₹150</span>
+              <button class="btn-add-mini" onclick="addToCart('prod-7', this)">Add +</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 8 -->
+        <article class="explore-card" data-id="prod-8">
+          <div class="explore-card-img-box">
+            <img src="images/croissant.png" alt="French Butter Croissants (2 Pcs)" />
+          </div>
+          <div class="explore-card-content">
+            <div>
+              <span class="explore-card-category">CROISSANT • Pack of 2</span>
+              <h4 class="explore-card-title">French Butter Croissants (2 Pcs)</h4>
+              <p class="explore-card-desc">Classic flaky French croissants with airy honeycomb lamination and a rich buttery aroma.</p>
+            </div>
+            <div class="explore-card-bottom">
+              <span class="explore-price">₹160</span>
+              <button class="btn-add-mini" onclick="addToCart('prod-8', this)">Add +</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 9 -->
+        <article class="explore-card" data-id="prod-9">
+          <div class="explore-card-img-box">
+            <img src="images/berry-tart.png" alt="Fresh Berry Almond Rustic Tart" />
+          </div>
+          <div class="explore-card-content">
+            <div>
+              <span class="explore-card-category">TART • Single / 200g</span>
+              <h4 class="explore-card-title">Fresh Berry Almond Rustic Tart</h4>
+              <p class="explore-card-desc">Buttery shortcrust pastry filled with almond frangipane cream and mixed berry compote.</p>
+            </div>
+            <div class="explore-card-bottom">
+              <span class="explore-price">₹190</span>
+              <button class="btn-add-mini" onclick="addToCart('prod-9', this)">Add +</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 10 -->
+        <article class="explore-card" data-id="prod-10">
+          <div class="explore-card-img-box">
+            <img src="images/toast-milk-rusk.png" alt="Crispy Suji Elaichi Rusk" />
+          </div>
+          <div class="explore-card-content">
+            <div>
+              <span class="explore-card-category">TOAST • 400g Box</span>
+              <h4 class="explore-card-title">Crispy Suji Elaichi Rusk</h4>
+              <p class="explore-card-desc">Traditional semolina (suji) tea toast with freshly ground cardamom seeds and light sweetness.</p>
+            </div>
+            <div class="explore-card-bottom">
+              <span class="explore-price">₹110</span>
+              <button class="btn-add-mini" onclick="addToCart('prod-10', this)">Add +</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 11 -->
+        <article class="explore-card" data-id="prod-11">
+          <div class="explore-card-img-box">
+            <img src="images/chocolate-cake.png" alt="Red Velvet Cream Cheese Cake" />
+          </div>
+          <div class="explore-card-content">
+            <div>
+              <span class="explore-card-category">CAKE • 500g Cake</span>
+              <h4 class="explore-card-title">Red Velvet Cream Cheese Cake</h4>
+              <p class="explore-card-desc">Crimson cocoa velvet sponge layered with silky Italian mascarpone & cream cheese frosting.</p>
+            </div>
+            <div class="explore-card-bottom">
+              <span class="explore-price">₹580</span>
+              <button class="btn-add-mini" onclick="addToCart('prod-11', this)">Add +</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 12 -->
+        <article class="explore-card" data-id="prod-12">
+          <div class="explore-card-img-box">
+            <img src="images/whole-grain-bread.png" alt="Artisan Sourdough Country Boule" />
+          </div>
+          <div class="explore-card-content">
+            <div>
+              <span class="explore-card-category">BREAD • 500g Boule</span>
+              <h4 class="explore-card-title">Artisan Sourdough Country Boule</h4>
+              <p class="explore-card-desc">Traditional rustic round country loaf with blistered chewy crust and an open moist crumb.</p>
+            </div>
+            <div class="explore-card-bottom">
+              <span class="explore-price">₹170</span>
+              <button class="btn-add-mini" onclick="addToCart('prod-12', this)">Add +</button>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
