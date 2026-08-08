@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sahu Namkeen Sweet and Cake Shop | Fresh Toast, Cakes & Namkeen in India</title>
+  <meta name="description" content="Sahu Namkeen Sweet and Cake Shop - Authentic Indian milk toasts, suji rusks, decadent celebration cakes, sweets, and fresh artisan breads in India. Order online in Indian Rupees (₹) with same-day local delivery." />
+  <meta name="keywords" content="Sahu Namkeen Sweet and Cake Shop, Sahu bakery, milk toast, suji rusk, eggless cakes, birthday cakes, namkeen, sweets in India" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ==========================================
+       Top Notification Bar
+       ========================================== -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-bar-badge" style="font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: #fde68a;">
+        <span class="dot"></span>
+        <span>THIS IS A DEMO SITE</span>
+      </div>
+      <div class="top-bar-info" style="font-size: 0.78rem;">
+        <span>🕒 Open Daily: 7:00 AM – 10:30 PM</span>
+        <span>🌱 100% Pure Veg & Eggless Delicacies</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       Main Sticky Header
+       ========================================== -->
+  <header class="site-header" id="site-header">
+    <div class="nav-container">
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-logo-link" id="nav-brand-link">
+        <img src="images/logo.png" alt="Sahu Namkeen Sweet and Cake Shop Emblem" class="brand-logo-img" />
+        <div class="brand-text">
+          <h1>Sahu Namkeen</h1>
+          <span>Sweet & Cake Shop</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav>
+        <ul class="main-nav-links" id="main-nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#top-products">Top Products</a></li>
+          <li><a href="#promo-banner">Special Offer</a></li>
+          <li><a href="#explore-menu">Explore Menu</a></li>
+          <li><a href="#our-story">Our Story</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Action Controls -->
+      <div class="nav-actions">
+        <!-- Live Cart Button -->
+        <button class="cart-btn-wrapper" id="cart-drawer-trigger" onclick="toggleCartDrawer(true)" aria-label="Open Cart Drawer">
+          <div class="btn-icon">
+            🛒
+            <span class="cart-badge" id="nav-cart-badge">0</span>
+          </div>
+          <span class="cart-btn-amount" id="nav-cart-amount">₹0</span>
+        </button>
+
+        <!-- WhatsApp Quick Connect (Unconfigured / Dynamic) -->
+        <button class="btn-whatsapp" onclick="openWhatsAppChat()" style="padding: 0.45rem 0.9rem; font-size: 0.85rem;" title="Order / Inquire on WhatsApp">
+          <span>💬 WhatsApp</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       Hero Section (Matches Reference Hero)
+       ========================================== -->
+  <section class="hero-section" id="home">
+    <div class="container hero-grid">
+      <!-- Left Content -->
+      <div class="hero-left-content">
+        <div class="hero-tag">
+          <span>✨</span> Freshly Baked Every Morning in India
+        </div>
+        <span class="hero-cafe-subtitle">Delicious Cafe</span>
+        <h2 class="hero-title">Sweet Treats, <br /><span>Perfect Eats</span></h2>
+        <p class="hero-desc">
+          Indulge in authentic Indian milk toasts, suji cardamom rusks, melt-in-mouth Belgian chocolate truffle cakes, and golden artisan pastries crafted with 100% pure dairy butter.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#top-products" class="btn-primary">
+            <span>Shop Now</span> →
+          </a>
+          <a href="#explore-menu" class="btn-ghost-light">
+            <span>Explore Full Menu</span>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3>40+</h3>
+            <p>Years of Legacy</p>
+          </div>
+          <div class="stat-item">
+            <h3>100%</h3>
+            <p>Pure Veg & Eggless</p>
+          </div>
+          <div class="stat-item">
+            <h3>50K+</h3>
+            <p>Happy Foodies</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Bakery Showcase Card -->
+      <div class="hero-image-wrapper">
+        <div class="hero-image-card">
+          <img src="images/hero-banner.png" alt="Sahu Bakery Fresh Artisanal Bakes and Toasts" />
+          <div class="hero-floating-badge">
+            <span class="badge-icon">🍞</span>
+            <div class="badge-text">
+              <strong>Signature Milk Toast & Truffles</strong>
+              <span>Baked Fresh at 5:00 AM Daily</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       Top Products Section (Reference 6-Card Grid)
+       ========================================== -->
+  <section class="top-products-section" id="top-products">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Chef's Signature</span>
+        <h2 class="section-title">Top Products</h2>
+        <p class="section-desc">Handcrafted with time-honored recipes, premium ingredients, and unbeatable taste in every single bite.</p>
+      </div>
+
+      <!-- Dynamic 6-item Product Grid (Loaded via app.js with fallback) -->
+      <div class="products-grid" id="top-products-grid">
+        <!-- Fallback static cards in case JS is disabled -->
+        <article class="product-card">
+          <div class="product-image-box">
+            <img src="images/toast-milk-rusk.png" alt="Royal Butter Milk Toast" />
+            <span class="product-tag">Best Seller</span>
+            <div class="product-veg-indicator"></div>
+          </div>
+          <div class="product-card-body">
+            <div>
+              <div class="product-price-row">
+                <div class="product-price">₹120 <span class="product-original-price">₹150</span></div>
+                <button class="btn-info-circle" onclick="openQuickView('prod-1')">i</button>
+              </div>
+              <h3 class="product-title">Royal Butter Milk Toast (Rusk)</h3>
+              <p class="product-short-desc">Crisp, double-baked golden milk rusks infused with aromatic cardamom.</p>
+            </div>
+            <div class="product-footer-action">
+              <span class="product-pack-size">400g Pack</span>
+              <button class="btn-add-cart" onclick="addToCart('prod-1', this)">Add +</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       Special Promo Banner (Reference Middle Section)
+       ========================================== -->
+  <section class="promo-banner-section" id="promo-banner">
+    <div class="container">
+      <div class="promo-banner-card">
+        <img src="images/promo-banner.png" alt="Artisan Breads and Croissants" class="promo-banner-bg" />
+        <div class="promo-banner-overlay"></div>
+        <div class="promo-banner-content">
+          <span class="promo-banner-tag">Freshness Delivered To You</span>
+          <h2 class="promo-banner-title">20% Off Your First Order</h2>
+          <p class="promo-banner-desc">
+            Taste the authentic goodness of traditional Indian toasts and decadent celebration cakes with our introductory discount.
+          </p>
+          <div>
+            <div class="promo-code-pill" onclick="claimPromoCode('SAHU20')" title="Click to copy & apply code">
+              <span>PROMO CODE:</span>
+              <strong>SAHU20</strong>
+              <span>(Click to Apply)</span>
+            </div>
+          </div>
+          <button class="btn-primary" onclick="claimPromoCode('SAHU20')">
+            Claim 20% Discount →
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       Explore More / Tabbed Menu Grid (Reference Bottom)
+       ========================================== -->
+  <section class="explore-menu-section" id="explore-menu">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Full Confectionery Menu</span>
+        <h2 class="section-title">Explore More</h2>
+        <p class="section-desc">From tea-time rusks to designer wedding cakes, discover our complete bakery catalog priced in Indian Rupees (₹).</p>
+      </div>
+
+      <!-- Category Filter Tabs (Cake, Muffins, Croissant, Bread, Tart, Toast) -->
+      <div class="category-tabs-nav">
+        <button class="tab-btn active" data-category="all">All Items</button>
+        <button class="tab-btn" data-category="toast">Toast & Rusks 🥖</button>
+        <button class="tab-btn" data-category="cake">Cakes 🎂</button>
+        <button class="tab-btn" data-category="croissant">Croissants & Pastries 🥐</button>
+        <button class="tab-btn" data-category="bread">Artisan Breads 🍞</button>
+        <button class="tab-btn" data-category="muffins">Muffins 🧁</button>
+        <button class="tab-btn" data-category="tart">Tarts 🥧</button>
+      </div>
+
+      <!-- Quick Search Filter -->
+      <div style="max-width: 420px; margin: 0 auto 2.5rem; position: relative;">
+        <input 
+          type="text" 
+          id="site-search-input" 
+          placeholder="🔍 Search Toast, Cake, Bread, Croissant..." 
+          style="width: 100%; padding: 0.75rem 1.2rem; border-radius: 9999px; border: 1.5px solid rgba(135,35,65,0.25); background: #FAF6F4; font-size: 0.92rem;"
+        />
+      </div>
+
+      <!-- Explore Grid Container -->
+      <div class="explore-grid" id="explore-menu-grid">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       Bakery Story & Quality Promise
+       ========================================== -->
+  <section class="story-section" id="our-story">
+    <div class="container story-grid">
+      <div class="story-image-wrap">
+        <img src="images/hero-banner.png" alt="Sahu Bakery Heritage Oven" class="story-main-img" />
+        <div class="story-card-overlay">
+          <h4>Oven Fresh Daily</h4>
+          <p>Baked with 100% pure butter and unbleached grain flours.</p>
+        </div>
+      </div>
+
+      <div class="story-content">
+        <span class="section-subtitle">Since 1982 in India</span>
+        <h2>Master Bakers & Halwais Committed to Purity & Tradition</h2>
+        <p>
+          At <strong>Sahu Namkeen Sweet and Cake Shop</strong>, we blend authentic Indian sweet & namkeen craftsmanship with classical patisserie techniques. Whether it is our crisp cardamom milk toast that dissolves smoothly in hot chai, crunchy spiced namkeen, or our signature Belgian chocolate celebration cakes, every recipe is crafted to bring joy.
+        </p>
+        <p>
+          We take immense pride in offering 100% vegetarian, eggless options, pure ghee sweets, zero artificial preservatives, and locally sourced dairy.
+        </p>
+
+        <div class="story-features">
+          <div class="feature-pill">
+            <span class="feature-icon">🌿</span>
+            <div class="feature-text">
+              <strong>100% Pure Veg & Eggless</strong>
+              <span>Guaranteed vegetarian kitchen</span>
+            </div>
+          </div>
+          <div class="feature-pill">
+            <span class="feature-icon">🧈</span>
+            <div class="feature-text">
+              <strong>Pure Dairy Butter & Desi Ghee</strong>
+              <span>No cheap palm oils or additives</span>
+            </div>
+          </div>
+          <div class="feature-pill">
+            <span class="feature-icon">⚡</span>
+            <div class="feature-text">
+              <strong>Same Day Delivery</strong>
+              <span>Directly to your doorstep</span>
+            </div>
+          </div>
+          <div class="feature-pill">
+            <span class="feature-icon">🎂</span>
+            <div class="feature-text">
+              <strong>Custom Theme Cakes & Gift Boxes</strong>
+              <span>Crafted for your milestones</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       Custom Cake & Namkeen WhatsApp CTA Bar
+       ========================================== -->
+  <section class="custom-order-cta" id="contact">
+    <div class="container custom-order-box">
+      <div class="custom-order-text">
+        <h3>Need Custom Celebration Cakes, Sweets or Bulk Gift Hampers?</h3>
+        <p>Chat directly with our master chef on WhatsApp for custom designs, tier cakes, party orders, or festival sweets.</p>
+      </div>
+      <div class="custom-order-btns">
+        <button class="btn-whatsapp" onclick="openWhatsAppChat()">
+          <span>💬 Chat on WhatsApp</span>
+        </button>
+        <button class="btn-ghost-light" onclick="toggleCartDrawer(true)">
+          View My Cart 🛒
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       Footer
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h3>Sahu Namkeen Sweet & Cake Shop</h3>
+        <p>Handcrafting the finest milk toasts, suji rusks, artisan celebration cakes, traditional sweets, and crispy namkeen in India since 1982.</p>
+        <div class="fssai-badge">
+          <span>🛡️ FSSAI Lic. No: [Add License Number]</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Our Specialties</h4>
+        <ul class="footer-links">
+          <li><a href="#top-products">Royal Milk Toast (Rusk)</a></li>
+          <li><a href="#top-products">Belgian Truffle Cake</a></li>
+          <li><a href="#explore-menu">Garlic Herb Batons</a></li>
+          <li><a href="#explore-menu">Eggless Fruit Cakes</a></li>
+          <li><a href="#explore-menu">Indian Sweets & Namkeen</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Store Info</h4>
+        <ul class="footer-links">
+          <li><a href="#our-story">About Sahu Shop</a></li>
+          <li><a href="#promo-banner">20% Off Coupon</a></li>
+          <li><a href="#contact">WhatsApp Direct Order</a></li>
+          <li><a href="#">Hygiene & Quality Standards</a></li>
+          <li><a href="#">Privacy & Return Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visit Store / Order</h4>
+        <div class="footer-contact-item">
+          <i>📍</i>
+          <span>[Add Shop Address / Market Location, India]</span>
+        </div>
+        <div class="footer-contact-item">
+          <i>📞</i>
+          <span>[Add Shop Phone Number / Helpline]</span>
+        </div>
+        <div class="footer-contact-item">
+          <i>✉️</i>
+          <span>orders@sahunamkeensweet.in</span>
+        </div>
+        <div class="footer-contact-item">
+          <i>⏰</i>
+          <span>7:00 AM – 10:30 PM (All 7 Days)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 Sahu Namkeen Sweet and Cake Shop. All Rights Reserved. Prices in Indian Rupees (₹).</p>
+      <p>Crafted with ❤️ for tea, namkeen, & dessert lovers across India.</p>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       Slide-in Cart Drawer
+       ========================================== -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay" onclick="toggleCartDrawer(false)"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Cart">
+    <div class="cart-drawer-header">
+      <h3><span>🛒</span> Your Bakery Basket</h3>
+      <button class="btn-close-drawer" onclick="toggleCartDrawer(false)" aria-label="Close Cart">✕</button>
+    </div>
+
+    <!-- Free Delivery Progress Bar -->
+    <div class="cart-free-shipping-progress" id="cart-free-shipping-text">
+      Add items worth <strong>₹500</strong> for <strong>FREE Local Delivery</strong>!
+    </div>
+
+    <!-- Cart Items Body -->
+    <div class="cart-items-body" id="cart-items-container">
+      <!-- Injected via app.js -->
+    </div>
+
+    <!-- Cart Footer & Checkout -->
+    <div class="cart-drawer-footer" id="cart-footer-box">
+      <!-- Coupon Code Box -->
+      <div class="coupon-input-group">
+        <input type="text" id="coupon-code-input" placeholder="Coupon Code (e.g. SAHU20)" />
+        <button onclick="applyCoupon()">Apply</button>
+      </div>
+
+      <!-- Bill Breakdown in INR -->
+      <div class="cart-summary-row">
+        <span>Item Subtotal</span>
+        <strong id="cart-subtotal">₹0</strong>
+      </div>
+      <div class="cart-summary-row" id="cart-discount-row" style="display: none; color: #2E7D32;">
+        <span>Promo Discount (20%)</span>
+        <strong id="cart-discount-amount">- ₹0</strong>
+      </div>
+      <div class="cart-summary-row">
+        <span>Local Delivery Fee</span>
+        <strong id="cart-delivery-fee">₹50</strong>
+      </div>
+      <div class="cart-summary-row cart-summary-total">
+        <span>Grand Total (INR)</span>
+        <span id="cart-grand-total">₹0</span>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="cart-action-buttons">
+        <button class="btn-whatsapp-checkout" onclick="orderViaWhatsApp()">
+          <span>💬 Order via WhatsApp</span>
+        </button>
+        <button class="btn-checkout" onclick="openCheckoutModal()">
+          <span>⚡ Instant Checkout (₹)</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================
+       Quick View Modal
+       ========================================== -->
+  <div class="modal-overlay" id="quickview-modal-overlay" onclick="closeQuickView()">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeQuickView()" aria-label="Close modal">✕</button>
+      <div class="modal-grid">
+        <div class="modal-image-col">
+          <img id="qv-img" src="images/toast-milk-rusk.png" alt="Bakery Item" />
+        </div>
+        <div class="modal-info-col">
+          <span class="modal-category-tag" id="qv-category">TOAST • BEST SELLER</span>
+          <h3 class="modal-title" id="qv-title">Royal Butter Milk Toast</h3>
+          <div class="modal-price-wrap">
+            <span class="modal-price" id="qv-price">₹120</span>
+            <span style="font-size: 0.85rem; color: #2E7D32; font-weight: 600;">✓ In Stock & Fresh</span>
+          </div>
+          <p class="modal-desc" id="qv-desc">Full description here.</p>
+
+          <ul class="modal-meta-list">
+            <li><span>Dietary:</span> <strong>100% Pure Vegetarian / Eggless</strong></li>
+            <li><span>Ingredients:</span> <strong id="qv-ingredients">Flour, Butter, Sugar, Milk</strong></li>
+            <li><span>Shelf Life:</span> <strong id="qv-shelf-life">60 Days</strong></li>
+            <li><span>Delivery:</span> <strong>Same-Day Dispatch</strong></li>
+          </ul>
+
+          <button class="btn-primary" id="qv-add-btn" style="width: 100%; justify-content: center;">
+            Add to Basket 🛒
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       Instant Checkout Simulation Modal
+       ========================================== -->
+  <div class="modal-overlay" id="checkout-modal-overlay" onclick="closeCheckoutModal()">
+    <div class="modal-card checkout-modal-card" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeCheckoutModal()" aria-label="Close modal">✕</button>
+      <h3>Complete Your Bakery Order</h3>
+      <p style="font-size: 0.9rem; color: #666; margin-bottom: 1.5rem;">Fast dispatch & contactless delivery in Indian Rupees (₹).</p>
+
+      <form onsubmit="handleCheckoutSubmit(event)">
+        <div class="form-group">
+          <label for="cust-name">Full Name *</label>
+          <input type="text" id="cust-name" required placeholder="e.g. Rahul Sharma" />
+        </div>
+
+        <div class="form-group">
+          <label for="cust-phone">Mobile Number (for SMS & WhatsApp Tracking) *</label>
+          <input type="tel" id="cust-phone" required placeholder="e.g. 9876543210" pattern="[0-9]{10}" />
+        </div>
+
+        <div class="form-group">
+          <label for="cust-address">Delivery Address *</label>
+          <textarea id="cust-address" rows="2" required placeholder="House/Flat No, Street, Landmark, Pin Code"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="cust-notes">Cake Customization / Special Instructions (Optional)</label>
+          <input type="text" id="cust-notes" placeholder="e.g. 'Happy Birthday Rohan' on cake, extra crispy rusk" />
+        </div>
+
+        <div class="form-group">
+          <label for="cust-payment">Payment Mode</label>
+          <select id="cust-payment">
+            <option value="upi">UPI / Google Pay / PhonePe / Paytm</option>
+            <option value="cod">Cash on Delivery (COD)</option>
+            <option value="card">Credit / Debit Card</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 1rem;">
+          Confirm & Place Order (₹)
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Main JavaScript File -->
+  <script src="app.js"></script>
+</body>
+</html>
