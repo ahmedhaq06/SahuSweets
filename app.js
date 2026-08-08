@@ -695,19 +695,18 @@ function showToast(message) {
 function toggleMobileMenu(forceState) {
   var drawer = document.getElementById('mobile-nav-drawer');
   var overlay = document.getElementById('mobile-nav-overlay');
-
   if (!drawer || !overlay) return;
 
-  var isOpen = drawer.classList.contains('open');
+  var isOpen = drawer.style.display === 'flex';
   var shouldOpen = (typeof forceState === 'boolean') ? forceState : !isOpen;
 
   if (shouldOpen) {
-    drawer.classList.add('open');
-    overlay.classList.add('open');
+    drawer.style.display = 'flex';
+    overlay.style.display = 'block';
     document.body.style.overflow = 'hidden';
   } else {
-    drawer.classList.remove('open');
-    overlay.classList.remove('open');
+    drawer.style.display = 'none';
+    overlay.style.display = 'none';
     document.body.style.overflow = '';
   }
 }
@@ -732,15 +731,7 @@ function setupEventListeners() {
     });
   });
 
-  // Mobile menu toggle trigger
-  const mobileToggle = document.getElementById('mobile-menu-toggle');
-  if (mobileToggle) {
-    mobileToggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      toggleMobileMenu();
-    });
-  }
+  // (Mobile menu toggle is handled via onclick in HTML)
 
   // Live search bar
   const searchInput = document.getElementById('site-search-input');
