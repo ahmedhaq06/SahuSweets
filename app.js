@@ -693,56 +693,28 @@ function showToast(message) {
 // Mobile Navigation Drawer Toggle
 // ==========================================
 function toggleMobileMenu(forceState) {
-  const drawer = document.getElementById('mobile-nav-drawer');
-  const overlay = document.getElementById('mobile-nav-overlay');
-  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  var drawer = document.getElementById('mobile-nav-drawer');
+  var overlay = document.getElementById('mobile-nav-overlay');
 
-  if (!drawer || !overlay) {
-    console.warn('Drawer elements not ready');
-    return;
-  }
+  if (!drawer || !overlay) return;
 
-  const isCurrentlyOpen = drawer.classList.contains('open');
-  const shouldOpen = typeof forceState === 'boolean' 
-    ? forceState 
-    : !isCurrentlyOpen;
+  var isOpen = drawer.classList.contains('open');
+  var shouldOpen = (typeof forceState === 'boolean') ? forceState : !isOpen;
 
   if (shouldOpen) {
     drawer.classList.add('open');
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
-    if (toggleBtn) {
-      toggleBtn.innerHTML = `
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" style="pointer-events: none;">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      `;
-      toggleBtn.setAttribute('aria-expanded', 'true');
-    }
   } else {
     drawer.classList.remove('open');
     overlay.classList.remove('open');
     document.body.style.overflow = '';
-    if (toggleBtn) {
-      toggleBtn.innerHTML = `
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" style="pointer-events: none;">
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      `;
-      toggleBtn.setAttribute('aria-expanded', 'false');
-    }
   }
 }
 window.toggleMobileMenu = toggleMobileMenu;
 
-// Close drawer on ESC key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    toggleMobileMenu(false);
-  }
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') toggleMobileMenu(false);
 });
 
 // ==========================================
