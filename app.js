@@ -695,9 +695,10 @@ function toggleMobileMenu(forceState) {
   const overlay = document.getElementById('mobile-nav-overlay');
   if (!drawer || !overlay) return;
 
+  const isCurrentlyOpen = drawer.classList.contains('open');
   const shouldOpen = typeof forceState === 'boolean' 
     ? forceState 
-    : !drawer.classList.contains('open');
+    : !isCurrentlyOpen;
 
   if (shouldOpen) {
     drawer.classList.add('open');
@@ -710,6 +711,13 @@ function toggleMobileMenu(forceState) {
   }
 }
 window.toggleMobileMenu = toggleMobileMenu;
+
+// Close drawer on ESC key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    toggleMobileMenu(false);
+  }
+});
 
 // ==========================================
 // Event Listeners & Header Scroll
@@ -729,10 +737,12 @@ function setupEventListeners() {
   // Mobile menu toggle trigger
   const mobileToggle = document.getElementById('mobile-menu-toggle');
   if (mobileToggle) {
-    mobileToggle.addEventListener('click', (e) => {
+    const handleToggle = (e) => {
+      e.preventDefault();
       e.stopPropagation();
       toggleMobileMenu(true);
-    });
+    };
+    mobileToggle.addEventListener('click', handleToggle);
   }
 
   // Live search bar
